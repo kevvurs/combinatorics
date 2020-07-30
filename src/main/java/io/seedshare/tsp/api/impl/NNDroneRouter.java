@@ -38,7 +38,7 @@ public class NNDroneRouter extends AbstractDroneRouter {
     ServiceDestination origin = distributionCenter;
     List<ServiceDestination> serviceRoute = new LinkedList<>();
     List<ServiceDestination> neighbors = new ArrayList<>(serviceDestinations);
-    while (neighbors.isEmpty()) {
+    while (!neighbors.isEmpty()) {
       origin = pollNearestNeighbor(origin, neighbors);
       serviceRoute.add(origin);
     }
